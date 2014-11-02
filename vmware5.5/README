@@ -1,0 +1,62 @@
+
+                 README: PC-386/486/Pentium[234]/iacsflP[23]
+
+This file contains board-specific information for a generic PC-386/486/
+Pentium[234]/iacsflP[23] target board.  
+This file documents BSP interface changes from previous
+software or hardware versions, and notifies the user of serious caveats
+that must be noted before using this BSP.  Additionally, the target
+board's reference entry (e.g., man pcXXXX for UNIX or the HTML reference
+entries) provides board-specific information necessary to run VxWorks.
+The target reference entry should be read fully before this BSP is used.
+
+--------------------------------------------------------------------------------
+RELEASE 1.2/3
+	Released by Wind River for Tornado 2.2 CP1.
+
+RELEASE 1.2/2
+	First release for Tornado 2.2 
+	replaced NUMBER_OF_IRQS with sysInumTblNumEnt
+	added sysBp(TRUE in default) that is used by sysSerial.c and xxIntr.c
+	added CPU type PENTIUM[234], removed CPU_VARIANT
+	added sysCsSuper, sysCsExc, sysCsInt in sysALib.s
+	removed sysCodeSelector, ROM_XXX offset macro, ideDrv
+	updated CPUID (sysCpuId) structure:
+	  sysCpuId.version -> sysCpuId.signature
+	  sysCpuId.vendor  -> sysCpuId.vendorId
+	  sysCpuId.feature -> sysCpuId.featuresEdx
+	updated sysCpuProbe(), sysIntEoiGet(), [li]oApicIntr.c
+	renamed INT_VEC_GET()/XXX_INT_VEC to INT_NUM_GET()/INT_NUM_XXX
+
+	The WRS Intel 80x86-based and Pentium-based BSP Makefiles formerly
+	defined bootrom_high, vxWorks_low, and vxWorks_rom_low build
+	targets.  These images are deprecated and will no longer be
+	supported.
+
+RELEASE 1.2/0
+	First release for Tornado 2.0 
+
+RELEASE 1.1/4
+	This release includes Pentium/PentiumPro support.
+
+RELEASE 1.1/3
+	This release includes TrueFFS support.
+	This release includes support for the fei Enhanced Network
+	Driver.
+
+RELEASE 1.1/2
+	This release includes SCSI-2 driver support for the AHA-2940 
+        PCI SCSI Adapter card.
+        Fixed SPR 9622 to add support of shared interrupts for fei driver.
+        Fixed SPR 8248 to remove obsolete vxsys.c.
+        Fixed SPR 6617 to add documentation for software floating point 
+        support. 
+
+RELEASE 1.1/1
+	This release includes timestamp driver support, ATA support, 
+	compressed bootrom support, and pci support.
+
+RELEASE 1.1/0
+	This is a new release of the pc386 BSP for Tornado 1.0.  Only the
+	serial driver has been changed to the new sio driver.
+	
